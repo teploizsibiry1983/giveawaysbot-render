@@ -1,10 +1,6 @@
 import json
 from telegram import Update
-from telegram.ext import (
-    ApplicationBuilder,
-    CommandHandler,
-    ContextTypes
-)
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 # --------------------------
 # ЧИТАЕМ config.json
@@ -25,12 +21,13 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # --------------------------
 def main():
     app = ApplicationBuilder().token(BOT_TOKEN).build()
-
-    # обработчики команд
+    # Обработчик команды /start
     app.add_handler(CommandHandler("start", start))
-
     print("Bot started...")
     app.run_polling()
 
+# --------------------------
+# Точка входа
+# --------------------------
 if name == "main":
     main()
