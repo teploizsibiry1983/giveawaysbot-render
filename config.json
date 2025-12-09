@@ -1,9 +1,13 @@
 {
   "BOT_TOKEN": "8551277699:AAEnYfu7OjmrmcqR7EZvMVMgVW0E9HxDtoQ",
-  "CHANNELS": [
-    "https://t.me/+ksLQDcijjaQ3ZTgy",
-    "https://t.me/+OvRvnAEcItgzYzcy",
-    "https://t.me/+I2W3retaLJQxOWMy"
-  ],
-  "MANUAL_WINNER": true
+  "DRAWINGS": [
+    {
+      "NAME": "Тестовый розыгрыш",
+      "CHANNELS": [
+        "https://t.me/kanal1",
+        "https://t.me/kanal2",
+        "https://t.me/kanal3"
+      ]
+    }
+  ]
 }
