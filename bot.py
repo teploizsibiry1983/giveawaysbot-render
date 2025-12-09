@@ -1,12 +1,20 @@
-from telegram.ext import ApplicationBuilder, CommandHandler, CallbackQueryHandler
-from config import BOT_TOKEN
+import json
+from telegram import Update
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
+
+# читаем токен из config.json
+with open("config.json") as f:
+    config = json.load(f)
+
+BOT_TOKEN = config["BOT_TOKEN"]
+
+# простой обработчик /start
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("Бот запущен!")
 
 # создаём приложение
 app = ApplicationBuilder().token(BOT_TOKEN).build()
-
-# сюда добавляем обработчики
-# app.add_handler(CommandHandler("start_drawing", start_drawing_function))
-# app.add_handler(CallbackQueryHandler(button_click_function))
+app.add_handler(CommandHandler("start", start))
 
 # запуск бота
 app.run_polling()
